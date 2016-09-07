@@ -1,0 +1,45 @@
+.clearfix::before, .clearfix::after {
+    content:"";
+    display:table;
+}
+.clearfix::after {
+    clear:both;
+}
+.clearfix {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.wrapper {
+    position: relative;
+    background: #eee;
+    border:1px solid #999;
+}
+.team {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 158px;
+    height: 80px;
+    padding: 20px;
+    background: #ffffff;
+    border:1px solid #999;
+}
+.intro {
+    position: absolute;
+    top: 20px;
+    left: 239px;
+    right: 160px;
+    padding: 20px;
+    background: #ffffff;
+    border:1px solid #999;
+}
+.persons {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 78px;
+    height: 150px;
+    padding: 20px;
+    background: #ffffff;
+    border:1px solid #999;
+}
