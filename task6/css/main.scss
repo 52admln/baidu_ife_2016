@@ -1,0 +1,407 @@
+// reset
+@import "_reset";
+//global
+@import "global";
+
+@mixin opacity($opacity) {
+  opacity: $opacity / 100;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity);
+}
+
+$orange-color: #d45d5c;
+$white-color: #ffffff;
+$font-Heiti: "Heiti SC", sans-serif;
+$font-Yahei: "Microsoft Yahei", sans-serif;
+
+body {
+  width: 980px;
+  height: 1386px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.wrapper {
+  width: 892px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 2px solid #938e8c;
+  font-family: $font-Heiti;
+}
+
+.logo {
+  width: 110px;
+  height: 61px;
+  text-indent: 5px;
+  line-height: 100px;
+  background: $orange-color;
+  color: $white-color;
+}
+
+.time {
+  display: block;
+  height: 61px;
+  line-height: 100px;
+  color: $orange-color;
+}
+
+.container {
+  padding: 35px 0;
+}
+
+.banner-pic {
+  position: relative;
+  width: 641px;
+  height: 301px;
+}
+
+.filter-l, .filter-r {
+  position: absolute;
+  top: 0;
+  width: 191px;
+  height: 301px;
+  @include opacity(50);
+}
+
+.filter-l {
+  left: 0;
+  background: #428c59;
+}
+
+.filter-r {
+  right: 0;
+  background: #cc7580;
+}
+
+.banner-info {
+  width: 203px;
+  border-top: 2px solid #cc8091;
+  h4,
+  h1,
+  h2 {
+    font-family: $font-Yahei;
+  }
+  h4 {
+    color: #000000;
+    font-size: 24px;
+    text-decoration: underline;
+    line-height: 40px;
+    padding-top: 5px;
+  }
+  p {
+    color: #676767;
+    font-size: 12px;
+    font-family: "Kaiti SC", sans-serif;
+    line-height: 10px;
+  }
+  h1 {
+    color: #75b86b;
+    font-size: 116px;
+    font-style: italic;
+    padding: 15px 0;
+  }
+  h2 {
+    display: inline;
+    font-size: 55px;
+    color: #cc8091;
+  }
+}
+
+.bottom {
+  padding: 20px 0 0 5px;
+}
+
+.top-article {
+  padding: 10px 0;
+}
+
+.article-item {
+  float: left;
+  width: 220px;
+  height: 180px;
+  margin-right: 20px;
+
+  h5 {
+    padding: 10px 0;
+  }
+  p {
+    line-height: 16px;
+    @include opacity(70);
+  }
+}
+
+.item-special {
+  width: 150px;
+
+  ul {
+    margin-top: 20px;
+
+    li {
+      padding: 5px 0;
+      font-family: $font-Yahei;
+
+      span {
+        color: #cd4a48;
+        font-style: italic;
+        @include opacity(70);
+      }
+    }
+  }
+  p {
+    @include opacity(70);
+  }
+}
+
+.article-title {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: $font-Yahei;
+
+}
+
+.article-title.green {
+  color: #418c59;
+}
+
+.article-title.yellow {
+  color: #d2994f;
+}
+
+.article-title.red {
+  color: #cc7680;
+}
+
+.bottom-article {
+  padding: 20px 0;
+}
+
+.detail {
+  width: 415px;
+}
+
+.top-title {
+  border-bottom: 2px solid #11456b;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 42px;
+    color: #11456b;
+
+    span {
+      color: #f5e327;
+      font-weight: bold;
+      font-size: 72px;
+      font-style: italic;
+    }
+  }
+  h3 {
+    color: #11456b;
+    font-size: 33px;
+    font-weight: bold;
+  }
+}
+
+.page {
+  p {
+    color: #767777;
+    line-height: 16px;
+    word-break: break-all;
+
+    &:first-child:first-letter {
+      color: #f5e327;
+      font-size: 70px;
+      float: left;
+      padding: 5px 5px 25px 0;
+      margin-top: 20px;
+    }
+
+    &:not(:first-child) {
+      text-indent: 2em;
+    }
+  }
+
+}
+
+.pic {
+  float: right;
+  display: block;
+  margin: 10px 0 10px 10px;
+}
+
+.top-pic {
+  position: relative;
+  height: 260px;
+}
+
+.intro-title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 458px;
+  height: 61px;
+  background: #000;
+  @include opacity(50);
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 35px;
+    top: 10px;
+    width: 3px;
+    height: 44px;
+    background: #72b16a;
+  }
+  h2 {
+    color: $white-color;
+    font-size: 26px;
+    line-height: 61px;
+    margin-left: 50px;
+
+    span {
+      padding-left: 5px;
+      font-size: 12px;
+      color: #72b16a;
+      font-style: italic;
+    }
+  }
+}
+
+.bottom-list {
+  width: 459px;
+  height: 318px;
+  margin-top: 30px;
+  background: #eeeed6;
+}
+
+.list-top {
+  height: 137px;
+  padding: 20px 0 0 20px;
+
+  li {
+    font-size: 16px;
+    color: #5a5b5b;
+    text-align: left;
+    line-height: 30px;
+
+    em {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 5px 8px 5px;
+      border-color: transparent transparent #074567 transparent;
+      float: left;
+      margin: 12px 5px 0 0;
+    }
+
+    span {
+      font-style: italic;
+      text-align: right;
+    }
+  }
+}
+
+.list-left {
+  position: relative;
+  width: 260px;
+  height: 160px;
+  background: #d45d5c;
+
+  h1 {
+    font-size: 110px;
+    color: $white-color;
+    font-family: $font-Yahei;
+
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 70px;
+    top: 31px;
+    height: 85px;
+    width: 2px;
+    background: $white-color;
+
+  }
+}
+
+.list-left-wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  margin-left: -125px;
+}
+
+.list-right-title {
+  width: 170px;
+  padding: 5px 0 0 15px;
+
+  h3 {
+    font-size: 21px;
+    color: $white-color;
+    font-style: italic;
+    line-height: 24px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 12px;
+    color: $white-color;
+    line-height: 16px;
+  }
+}
+
+.list-right {
+  width: 199px;
+}
+
+.blockquote {
+  position: relative;
+  height: 160px;
+  font-size: 14px;
+  color: #5a5b5b;
+  font-style: italic;
+  line-height: 16px;
+
+  p {
+    width: 170px;
+    text-indent: 2em;
+    margin: 30px 0 0 15px;
+    word-break: break-all;
+  }
+}
+
+.quote {
+  position: absolute;
+  display: block;
+  font-size: 72px;
+  color: $orange-color;
+  font-family: $font-Heiti;
+  font-weight: bold;
+}
+.quote-l {
+  top: 30px;
+  left: -30px;
+}
+.quote-r {
+  bottom: 0;
+  right: 0;
+}
+
+.footer {
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #938e8c;
+
+  span {
+    padding: 5px 0 0 5px;
+    font-size: 12px;
+    color: $orange-color;
+    font-family: $font-Heiti;
+  }
+}
