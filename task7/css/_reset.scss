@@ -1,0 +1,30 @@
+html,
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h5,
+p,
+input,
+textarea{
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,textarea {
+  outline: none;
+  border: 0;
+}
