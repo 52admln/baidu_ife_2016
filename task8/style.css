@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body,
+div {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width : 100%;
+    padding: 0 20px;
+}
+.container *{
+    box-sizing: border-box;
+}
+
+.row {
+    margin-bottom: 20px;
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+.row:before, .row:after {
+    display: table;
+    content: " ";
+}
+.row:after {
+    clear:both;
+}
+
+[class*="col-"] {
+    float: left;
+    min-height: 1px;
+    width: 8.33%;
+    /*-- our gutter --*/
+    padding: 10px;
+}
+.col-inner {
+    width: 100%;
+    height: 50px;
+    background: #eee;
+    border: 1px solid #999;
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .col-md-1 {
+        width: 8.33%;
+    }
+    .col-md-2 {
+        width: 16.66%;
+    }
+    .col-md-3 {
+        width: 25%;
+    }
+    .col-md-4 {
+        width: 33.33%;
+    }
+    .col-md-6 {
+        width: 50%;
+    }
+    .col-md-8 {
+        width: 66.66%;
+    }
+    .col-md-12 {
+        width: 100%;
+    }
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .container {
+        width: 100%;
+    }
+    .col-sm-1 {
+        width: 8.33%;
+    }
+    .col-sm-2 {
+        width: 16.66%;
+    }
+    .col-sm-3 {
+        width: 25%;
+    }
+    .col-sm-4 {
+        width: 33.33%;
+    }
+    .col-sm-6 {
+        width: 50%;
+    }
+    .col-sm-8 {
+        width: 66.65%;
+    }
+    .col-sm-12 {
+        width: 100%;
+    }
+}
