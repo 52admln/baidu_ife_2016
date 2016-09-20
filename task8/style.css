@@ -19,7 +19,8 @@ div {
     margin-bottom: 20px;
     zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
-.row:before, .row:after {
+.row:before,
+.row:after {
     display: table;
     content: " ";
 }
