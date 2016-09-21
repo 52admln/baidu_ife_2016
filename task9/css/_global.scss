@@ -1,0 +1,55 @@
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+
+/**
+ * For Modern Browser
+ */
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+.cf:after {
+  clear: both;
+}
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+  *zoom: 1;
+}
+
+body {
+  font-size: 12px;
+  font-family: Helvetica, "Heiti SC", "Microsoft Yahei", sans-serif;
+}
+
+.icon {
+  display: inline-block;
+}
+.icon-search {
+  width: 17px;
+  height: 17px;
+  margin-left: 10px;
+  margin-top: 6px;
+  background: url("../img/icon_search.png") no-repeat left center;
+}
+.icon-login {
+  width: 15px;
+  height: 16px;
+  vertical-align: top;
+  background: url("../img/icon_user.png") no-repeat left center;
+}
+.icon-doc {
+  width: 10px;
+  height: 11px;
+  background: url("../img/icon_doc.png") no-repeat center;
+}
+.icon-star {
+  background: url("../img/icon_star.png") no-repeat center;
+}
