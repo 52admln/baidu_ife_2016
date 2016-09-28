@@ -7,14 +7,30 @@ i,
 input,
 ul,
 ol,
-li {
+li,
+h3,
+select,
+option,
+button,
+table,
+tbody,
+tr,
+td,
+th{
   margin: 0;
   padding: 0;
 }
 
-input {
+input,
+button,
+table {
   border: 0;
   outline: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 a {
@@ -25,6 +41,11 @@ ul,
 ol,
 li {
   list-style: none;
+}
+
+select,
+option {
+  border-radius: 0;
 }
 
 
