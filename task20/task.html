@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #items {
+            padding-top: 20px;
+        }
+        #items > span {
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            color: #ffffff;
+            background: #00adff;
+            cursor: pointer;
+        }
+        #items > span:hover {
+            color: #ffffff;
+            background: #ff3b00;
+        }
+        .red {
+            color: #0f0;
+        }
+    </style>
+</head>
+<body>
+<!--<label for="textIpt">Tags:</label><input type="text" id="textIpt">-->
+<textarea name="textContent" id="textContent" cols="30" rows="10"></textarea>
+<br>
+<input type="button" value="点击添加元素" id="btnAdd">
+<br>
+<input type="text" id="queryTxt">
+<br>
+<input type="button" id="queryBtn" value="查询文本">
+<div id="items">
+    <!--<span>测试文本1</span>-->
+    <!--<span>测试文本2</span>-->
+    <!--<span>测试文本3</span>-->
+    <!--<span>测试文本4</span>-->
+    <!--<span>测试文本5</span>-->
+    <!--<span>测试文本6</span>-->
+</div>
+<script src="task.js"></script>
+</body>
+</html>
