@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label,
+        textarea,
+        input {
+            display: block;
+        }
+
+        label {
+            margin: 5px 0;
+        }
+
+        .items {
+            padding: 20px 0;
+        }
+
+        .items > span {
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            color: #ffffff;
+            background: #00adff;
+            cursor: pointer;
+        }
+
+        .items > span:hover {
+            color: #ffffff;
+            background: #ff3b00;
+        }
+
+        .red {
+            color: #0f0;
+        }
+    </style>
+</head>
+<body>
+<label for="textIpt">Tags:</label><input type="text" id="textIpt">
+<div id="itemTags" class="items"></div>
+
+<label for="textContent">兴趣爱好</label><textarea name="textContent" id="textContent" cols="30" rows="10"></textarea>
+<input type="button" value="确认添加" id="btnAdd">
+<div id="itemHobbys" class="items"></div>
+
+<script src="task.js"></script>
+</body>
+</html>
