@@ -27,14 +27,14 @@
     }
 
     var itemTags = $("#itemTags"),
-        itemHobbys = $("#itemHobbys"),
+        itemHobbies = $("#itemHobbies"),
         btnAdd = $("#btnAdd"),
         queryBtn = $("#queryBtn"),
         textIpt = $("#textIpt"),
         textArea = $("#textContent");
 
     var arrTags = [], //存放 input 加入的数据
-        arrHobby = [];  //存放 textArea 加入的数据
+        arrHobbies = [];  //存放 textArea 加入的数据
 
     // 删除元素
     EventUtil.addHandler(itemTags, "click", function (e) {
@@ -42,15 +42,15 @@
             deleteEle(itemTags, arrTags, e);
         }
     });
-    EventUtil.addHandler(itemHobbys, "click", function (e) {
+    EventUtil.addHandler(itemHobbies, "click", function (e) {
         if (e.target && e.target.nodeName.toLowerCase() == "span") {
-            deleteEle(itemHobbys, arrHobby, e);
+            deleteEle(itemHobbies, arrHobbies, e);
         }
     });
 
     // 添加兴趣爱好
     EventUtil.addHandler(btnAdd, "click", function () {
-        addTags("hobbys");
+        addTags("hobbies");
     });
 
     // 鼠标移入移出样式
@@ -66,13 +66,13 @@
             e.target.innerHTML = temp;
         }
     });
-    EventUtil.addHandler(itemHobbys, "mouseover", function (e) {
+    EventUtil.addHandler(itemHobbies, "mouseover", function (e) {
         if (e.target && e.target.nodeName.toLowerCase() == "span") {
             temp = e.target.innerHTML;
             e.target.innerHTML = "点击删除:" + temp;
         }
     });
-    EventUtil.addHandler(itemHobbys, "mouseout", function (e) {
+    EventUtil.addHandler(itemHobbies, "mouseout", function (e) {
         if (e.target && e.target.nodeName.toLowerCase() == "span") {
             e.target.innerHTML = temp;
         }
@@ -112,11 +112,11 @@
             addToArray(re_str, arrTags, "tags");
             render(arrTags, itemTags);
         }
-        if(target == "hobbys") {
+        if(target == "hobbies") {
             str = getData("textarea");
             var tempArr = str.split(/,|，|、|\s|\n|\r|\t/);
-            addToArray(tempArr, arrHobby, "hobbys");
-            render(arrHobby, itemHobbys);
+            addToArray(tempArr, arrHobbies, "hobbies");
+            render(arrHobbies, itemHobbies);
         }
 
     }
@@ -127,7 +127,7 @@
      * @param arr 目标数组
      */
     function addToArray(data, arr, target) {
-        if(target == "hobbys") {
+        if(target == "hobbies") {
             for(var i = 0, len=data.length; i<len; i++) {
                 if (arr.indexOf(data[i]) == -1 && data[i] !== "") { //去重 防止空白也被加入到
                     if(arr.length >= 10) {
@@ -136,7 +136,7 @@
                     arr.push(data[i]);
                 }
             }
-            console.log(arrHobby);
+            console.log(arrHobbies);
         }
         if(target == "tags") {
             if (arr.indexOf(data) == -1 && data !== "") { //去重 防止空白也被加入到
