@@ -121,12 +121,9 @@
         var len = 0;
         for (var i = 0; i < val.length; i++) {
             var ASCIICode = val.charCodeAt(i);
-            if(ASCIICode >= 0 && ASCIICode <= 128)
-            {
+            if(ASCIICode >= 0 && ASCIICode <= 128) {
                 len += 1;
-            }
-            else
-            {
+            } else {
                 len += 2;
             }
         }
