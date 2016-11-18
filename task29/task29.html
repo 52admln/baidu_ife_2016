@@ -3,86 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        input, button, select, textarea {
-            font-family: inherit;
-            font-size: inherit;
-            line-height: inherit;
-        }
-        .btn {
-            display: inline-block;
-            padding: 6px 12px;
-            margin-bottom: 0;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.42857143;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            -ms-touch-action: manipulation;
-            touch-action: manipulation;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            background-image: none;
-            border: 1px solid transparent;
-            border-radius: 4px;
-        }
-        .btn-primary {
-            color: #fff;
-            background-color: #428bca;
-            border-color: #357ebd;
-            outline: 0;
-        }
-        .btn-primary:hover, .btn-primary:focus {
-            color: #fff;
-            background-color: #3071a9;
-            border-color: #285e8e;
-        }
-        .form-control {
-            display: block;
-            width: 150px;
-            height: 20px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #555;
-            background-color: #fff;
-            background-image: none;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-        }
-        .form-control:focus {
-            border-color: #66afe9;
-            outline: 0;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-        }
-        .collection {
-            display: inline-block;
-            padding-left: 20px;
-            vertical-align: top;
-        }
-        .container {
-            padding:20px;
-        }
-        .tips {
-            font-size: 14px;
-            padding-top: 5px;
-            color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container">
@@ -93,42 +14,6 @@
     </div>
     <button id="nameBtn" class="btn btn-primary">验证</button>
 </div>
-<script>
-    var tips = document.querySelector(".tips");
-    var nameIpt = document.querySelector("#nameIpt");
-    document.querySelector("#nameBtn").onclick = function () {
-        var value = nameIpt.value;
-        validate(value);
-    };
-    function validate(str) {
-        if(!str){
-            tips.innerHTML = "姓名不能为空";
-            nameIpt.style.borderColor = "red";
-            tips.style.color = "red";
-            return false;
-        }
-        if(getByteLen(str) > 16 || getByteLen(str) < 4) {
-            tips.innerHTML = "长度为4-16个字符";
-            nameIpt.style.borderColor = "red";
-            tips.style.color = "red";
-            return false;
-        }
-        tips.innerHTML = "名称格式正确";
-        nameIpt.style.borderColor = "green";
-        tips.style.color = "green";
-    }
-    function getByteLen(val) {
-        var len = 0;
-        for (var i = 0; i < val.length; i++) {
-            var ASCIICode = val.charCodeAt(i);
-            if(ASCIICode >= 0 && ASCIICode <= 128) {
-                len += 1;
-            } else {
-                len += 2;
-            }
-        }
-        return len;
-    }
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
