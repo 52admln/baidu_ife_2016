@@ -1,17 +1,52 @@
 
-var tips = document.querySelector(".tips");
-var nameIpt = document.querySelector("#nameIpt");
+var nameIpt = document.querySelector("#nameIpt"),
+    inputs = document.querySelectorAll("input");
+
+var inputTips = ["必填,长度为4-16个字符"];
+
+for(var i=0,len=inputs.length;i<len;i++) {
+    inputs[i].addEventListener("focus", function (e) {
+        showTips(e);
+    });
+    inputs[i].addEventListener("blur", function (e) {
+
+    });
+}
+
+// document.querySelector("#nameIpt").onfocus = function (e) {
+//     showTips(e,"必填,长度为4-16个字符");
+// };
+// document.querySelector("#nameIpt").onblur = function (e) {
+//     console.log(e);
+//     validate_name(nameIpt.value);
+// };
 
 
-document.querySelector("#nameIpt").onfocus = function (e) {
-    showTips(e,"必填,长度为4-16个字符");
-};
-document.querySelector("#nameIpt").onblur = function (e) {
-    console.log(e);
-    validate_name(nameIpt.value);
-};
 
-function showTips(e,str) {
+
+function showTips(e) {
+    var str = "";
+    switch (e.target.name) {
+        case "name":
+            str = "必填,长度为4-16个字符";
+            break;
+        case "pwd":
+            str = "密码";
+            break;
+        case "confirm_pwd":
+            str = "密码";
+            break;
+        case "email":
+            str = "邮箱";
+            break;
+        case "telephone":
+            str = "手机号";
+            break;
+        default:
+            break;
+}
+    console.log(e.target.name);
+
     e.target.nextElementSibling.innerHTML = str;
 }
 
