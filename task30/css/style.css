@@ -67,6 +67,7 @@ input, button, select, textarea {
     display: inline-block;
     padding-left: 20px;
     vertical-align: top;
+    width: 250px;
 }
 .container {
     padding:20px;

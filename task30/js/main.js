@@ -1,72 +1,153 @@
 
-var nameIpt = document.querySelector("#nameIpt"),
+var nameBtn = document.querySelector("#nameBtn"),
     inputs = document.querySelectorAll("input");
 
-var inputTips = ["必填,长度为4-16个字符"];
+
+var result = {
+    tips: "",
+    checked: true
+};
+
+var inputTips = {
+    name:        { tips: '必填，长度为4-16个字符', isPassed: false},
+    pwd:         { tips: '必填，6到16位数字和字母', isPassed: false},
+    confirm_pwd: { tips:  '必填，重复输入密码', isPassed: false},
+    email:       { tips:  '必填，example@haha.com', isPassed: false},
+    telephone:   { tips: '必填，请输入11位手机号码', isPassed: false}
+};
 
 for(var i=0,len=inputs.length;i<len;i++) {
     inputs[i].addEventListener("focus", function (e) {
-        showTips(e);
+        showTips(e.target);
     });
     inputs[i].addEventListener("blur", function (e) {
-
+        validate(e.target)
     });
 }
 
-// document.querySelector("#nameIpt").onfocus = function (e) {
-//     showTips(e,"必填,长度为4-16个字符");
-// };
-// document.querySelector("#nameIpt").onblur = function (e) {
-//     console.log(e);
-//     validate_name(nameIpt.value);
-// };
+nameBtn.addEventListener("click", function () {
+    for(var index = 0; index<inputs.length; index++) {
+        validate(inputs[index]);
+    }
+    for(var item in inputTips) {
+        if(!inputTips[item]['isPassed']) {
+            alert("输入错误");
+            return;
+        } else {
+            alert("输入正确");
+            return;
+        }
+    }
+
+});
 
 
+function showTips(ele) {
+    ele.nextElementSibling.innerHTML = inputTips[ele.name]['tips'];
+}
 
-
-function showTips(e) {
-    var str = "";
-    switch (e.target.name) {
+function validate(ele) {
+    var str = ele.value;
+    switch (ele.name) {
         case "name":
-            str = "必填,长度为4-16个字符";
+            if(!str){
+                result.tips = "姓名不能为空";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            if(getByteLen(str) > 16 || getByteLen(str) < 4) {
+                result.tips = "长度为4-16个字符";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            result.checked = true;
+            inputTips[ele.name]['isPassed'] = true;
+            result.tips = "名称可用";
             break;
         case "pwd":
-            str = "密码";
+            if(!str){
+                result.tips = "密码不能为空";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            if(!(str.match(/^[a-zA-Z0-9]{6,16}$/))) {
+                result.tips = "请输入6到16位字符且只能为数字和字母";
+                inputTips[ele.name]['isPassed'] = false;
+                result.checked = false;
+                break;
+            }
+            result.checked = true;
+            inputTips[ele.name]['isPassed'] = true;
+            result.tips = "密码可用";
             break;
         case "confirm_pwd":
-            str = "密码";
+            if(!str){
+                result.tips = "密码不能为空";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            if(str !== document.querySelector("#pwd").value.trim()) {
+                result.tips = "两次密码输入要相同";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            result.checked = true;
+            inputTips[ele.name]['isPassed'] = true;
+            result.tips = "密码可用";
             break;
         case "email":
-            str = "邮箱";
+            if(!str){
+                result.tips = "邮箱不能为空";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(str))) {
+                result.tips = "邮箱格式错误";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            result.checked = true;
+            inputTips[ele.name]['isPassed'] = true;
+            result.tips = "邮箱可用";
             break;
         case "telephone":
-            str = "手机号";
+            if(!str){
+                result.tips = "手机不能为空";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            if(!(/^1[34578]\d{9}$/.test(str))) {
+                result.tips = "手机号码格式错误";
+                result.checked = false;
+                inputTips[ele.name]['isPassed'] = false;
+                break;
+            }
+            result.checked = true;
+            inputTips[ele.name]['isPassed'] = true;
+            result.tips = "手机可用";
             break;
         default:
             break;
-}
-    console.log(e.target.name);
-
-    e.target.nextElementSibling.innerHTML = str;
-}
-
-
-function validate_name(str) {
-    if(!str){
-        tips.innerHTML = "姓名不能为空";
-        nameIpt.style.borderColor = "red";
-        tips.style.color = "red";
+    }
+    if(result.checked) {
+        ele.nextElementSibling.innerHTML = result.tips;
+        ele.style.borderColor = "green";
+        ele.nextElementSibling.style.color = "green";
+        return true;
+    } else {
+        ele.nextElementSibling.innerHTML = result.tips;
+        ele.style.borderColor = "red";
+        ele.nextElementSibling.style.color = "red";
         return false;
     }
-    if(getByteLen(str) > 16 || getByteLen(str) < 4) {
-        tips.innerHTML = "长度为4-16个字符";
-        nameIpt.style.borderColor = "red";
-        tips.style.color = "red";
-        return false;
-    }
-    tips.innerHTML = "名称格式正确";
-    nameIpt.style.borderColor = "green";
-    tips.style.color = "green";
 }
 
 
