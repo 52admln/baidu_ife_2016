@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            padding: 20px;
+        }
+        .form-control {
+            margin-top: 20px;
+        }
+        .hide {
+            display: none;
+        }
+        select {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="radio" id="radioCheck">
+        <label for="isStudent"><input type="radio" name="type" id="isStudent" value="student" checked>在校生</label>
+        <label for="notStudent"><input type="radio" name="type" id="notStudent" value="stuff">非在校生</label>
+    </div>
+    <div class="form-control">
+        <div class="school">
+            <label for="school_location">学校</label>
+            <select name="school_location" id="school_location">
+                <option value="bj">北京</option>
+                <option value="hz">杭州</option>
+                <option value="sh">上海</option>
+            </select>
+            <select name="schools" id="schools"></select>
+        </div>
+        <div class="company hide">
+            <label for="job">就业单位: <input type="text" name="type" id="job" placeholder="填写就业单位"></label>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
